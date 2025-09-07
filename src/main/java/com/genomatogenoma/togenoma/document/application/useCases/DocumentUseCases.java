@@ -22,6 +22,7 @@ public class DocumentUseCases implements DocumentRepository<DocumentEntity, Long
         this.sanitizer = sanitizer;
     }
 
+
     @Override
     public Optional<DocumentEntity> create(DocumentEntity create) throws Exception {
         DocumentEntity documentEntity = this.toMapEntity(create);

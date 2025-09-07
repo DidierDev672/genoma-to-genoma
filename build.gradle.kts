@@ -30,13 +30,20 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.session:spring-session-jdbc")
 	implementation("org.mapstruct:mapstruct:1.4.2.Final")
+	implementation("junit:junit:4.13.1")
+	implementation("org.junit.jupiter:junit-jupiter:5.8.1")
+
 	compileOnly("org.projectlombok:lombok")
-	runtimeOnly("org.postgresql:postgresql")
 	annotationProcessor("org.projectlombok:lombok")
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
+
+	runtimeOnly("org.postgresql:postgresql")
+
+	// ✅ Test dependencies
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-	testImplementation("io.projectreactor:reactor-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	testImplementation("org.mockito:mockito-core:5.14.2")
+	testImplementation("org.mockito:mockito-junit-jupiter:5.14.2")
+	testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
 }
 
 tasks.withType<Test> {
