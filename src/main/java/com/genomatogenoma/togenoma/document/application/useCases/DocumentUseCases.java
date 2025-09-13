@@ -26,7 +26,8 @@ public class DocumentUseCases implements DocumentRepository<DocumentEntity, Long
     @Override
     public Optional<DocumentEntity> create(DocumentEntity create) throws Exception {
         DocumentEntity documentEntity = this.toMapEntity(create);
-        return Optional.of(this.documentPort.save(documentEntity));
+        this.documentPort.save(documentEntity);
+        return Optional.ofNullable(documentEntity);
     }
 
     @Override
