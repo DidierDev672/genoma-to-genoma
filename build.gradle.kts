@@ -41,9 +41,9 @@ dependencies {
 
 	// ✅ Test dependencies
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
 	testImplementation("org.mockito:mockito-core:5.14.2")
 	testImplementation("org.mockito:mockito-junit-jupiter:5.14.2")
-	testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
 }
 
 tasks.withType<Test> {
