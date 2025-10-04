@@ -1,11 +1,8 @@
 package com.genomatogenoma.togenoma.documentPermisson.infrastructure.driven.entities;
 
-import com.genomatogenoma.togenoma.company.domain.entities.CompanyEntities;
 import com.genomatogenoma.togenoma.company.domain.enums.PersonType;
 import com.genomatogenoma.togenoma.company.infrastructure.driven.entities.CompanyEntity;
-import com.genomatogenoma.togenoma.documentPermisson.domain.entities.DocumentPermissonEntities;
 import com.genomatogenoma.togenoma.documentPermisson.domain.enums.PermissonType;
-import com.genomatogenoma.togenoma.documents.domain.entities.DocumentEntities;
 import com.genomatogenoma.togenoma.documents.infrastructure.driven.entities.DocumentEntity;
 import org.junit.jupiter.api.Test;
 
@@ -42,13 +39,50 @@ public class DocumentPermissonEntityTest {
         assertEquals(now, documentPermissonEntities.getDateGranted());
     }
 
-    /*@Test
+    @Test
     void testAllArgsConstructor(){
         LocalDateTime now = LocalDateTime.now();
+        DocumentEntity expectedDocument = toDomainDocument();
+        CompanyEntity expectedCompony = toDomainCompany();
         DocumentPermissonEntity documentPermissonEntity = new DocumentPermissonEntity(
-                2L, toDomainDocument(), toDomainCompany(), PermissonType.WRITING, now
+                2L, expectedDocument, expectedCompony, PermissonType.WRITING, now
         );
-    }*/
+
+        assertEquals(2L, documentPermissonEntity.getId());
+
+        assertSame(expectedDocument, documentPermissonEntity.getDocumentEntities());
+        assertSame(expectedCompony, documentPermissonEntity.getCompanyEntities());
+
+        assertEquals(expectedDocument.getId(), documentPermissonEntity.getDocumentEntities().getId());
+        assertEquals(expectedCompony.getId(), documentPermissonEntity.getCompanyEntities().getId());
+        assertEquals(PermissonType.WRITING, documentPermissonEntity.getPermissonType());
+        assertEquals(now, documentPermissonEntity.getDateGranted());
+    }
+
+    @Test
+    void testBuilder(){
+        LocalDateTime now = LocalDateTime.now();
+        DocumentEntity expectedDocument = toDomainDocument();
+        CompanyEntity expectedCompany = toDomainCompany();
+
+        DocumentPermissonEntity documentPermissonEntity = DocumentPermissonEntity.builder()
+                .id(3L)
+                .documentEntities(expectedDocument)
+                .companyEntities(expectedCompany)
+                .permissonType(PermissonType.SHARE)
+                .dateGranted(now)
+                .build();
+
+        assertEquals(3L, documentPermissonEntity.getId());
+
+        assertSame(expectedDocument, documentPermissonEntity.getDocumentEntities());
+        assertSame(expectedCompany, documentPermissonEntity.getCompanyEntities());
+
+        assertEquals(expectedDocument.getId(), documentPermissonEntity.getDocumentEntities().getId());
+        assertEquals(expectedCompany.getId(), documentPermissonEntity.getCompanyEntities().getId());
+        assertEquals(PermissonType.SHARE, documentPermissonEntity.getPermissonType());
+        assertEquals(now, documentPermissonEntity.getDateGranted());
+    }
 
 
     private CompanyEntity toDomainCompany(){

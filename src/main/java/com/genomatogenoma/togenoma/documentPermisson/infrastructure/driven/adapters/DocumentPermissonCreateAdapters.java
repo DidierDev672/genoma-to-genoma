@@ -19,7 +19,6 @@ public class DocumentPermissonCreateAdapters implements CreateGeneric<DocumentPe
     }
     @Override
     public Optional<DocumentPermissonEntities> create(DocumentPermissonEntities entity) throws Exception {
-        DocumentPermissonEntities documentPermissonEntities = new DocumentPermissonEntities();
         if(entity != null){
             DocumentPermissonEntity documentPermisson = documentPermissonMapper.DOCUMENT_PERMISSON_ENTITY(entity);
             DocumentPermissonEntity createdPermisson = documentPermissonRepository.save(documentPermisson);

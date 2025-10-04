@@ -21,7 +21,7 @@ public class DocumentPermissonCreateController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createDocumentPermisson(@RequestBody DocumentPermissonEntities permissonEntities) throws Exception {
+    public ResponseEntity<?> createDocumentPermisson(@RequestBody DocumentPermissonEntities permissonEntities) throws Exception {
         if(permissonEntities != null){
             if(permissonEntities.getCompanyEntities() == null || permissonEntities.getDocumentEntities() == null){
                 return new ResponseEntity<>("Do not allow null data. You must review the data entered. Please", HttpStatus.CONFLICT);
