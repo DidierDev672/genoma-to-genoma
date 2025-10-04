@@ -32,6 +32,7 @@ dependencies {
 	implementation("org.mapstruct:mapstruct:1.4.2.Final")
 	implementation("junit:junit:4.13.1")
 	implementation("org.junit.jupiter:junit-jupiter:5.8.1")
+	implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.2")
 
 	compileOnly("org.projectlombok:lombok")
 	annotationProcessor("org.projectlombok:lombok")
@@ -41,9 +42,10 @@ dependencies {
 
 	// ✅ Test dependencies
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
 	testImplementation("org.mockito:mockito-core:5.14.2")
 	testImplementation("org.mockito:mockito-junit-jupiter:5.14.2")
-	testImplementation("org.junit.jupiter:junit-jupiter:5.11.3")
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
 tasks.withType<Test> {
