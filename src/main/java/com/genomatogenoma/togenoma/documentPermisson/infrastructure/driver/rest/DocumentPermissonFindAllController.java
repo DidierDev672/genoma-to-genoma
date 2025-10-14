@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/document-permisson")
+@RequestMapping("/api/document-permissons")
 public class DocumentPermissonFindAllController {
     private final FindAllDocumentPermissonUseCases findAllDocumentPermissonUseCases;
 
